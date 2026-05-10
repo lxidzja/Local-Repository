@@ -4,7 +4,6 @@ from main import add_service_fee, calculate_order_total, process_order
 
 
 class TestCafeOrder(unittest.TestCase):
-
     def setUp(self):
         self.menu = {"кава": 45.0, "чай": 30.0, "круасан": 50.0, "салат": 120.0}
 

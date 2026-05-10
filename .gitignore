@@ -6,3 +6,19 @@ node_modules/
 
 __pycache__/
 site/
+venv/
+env/
+.env
+
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+.vscode/
+.idea/
+.DS_Store
+
+.pytest_cache/
+.coverage

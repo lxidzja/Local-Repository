@@ -1,4 +1,4 @@
-name: Python Tests CI
+name: CI Pipeline
 
 on:
   push:
@@ -7,23 +7,26 @@ on:
     branches: ["main", "master"]
 
 jobs:
-  test:
+  build-and-test:
     defaults:
       run:
-        working-directory: ./lab7
+        working-directory: ./idz
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Отримання коду
+        uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - name: Встановлення Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.10"
 
-      - name: Run Doctests
-        run: python -m doctest main.py
+      - name: Встановлення залежностей
+        run: make setup
 
-      - name: Run Unit Tests
-        run: python -m unittest unittests.py
+      - name: Перевірка форматування (Black)
+        run: make format-check
+
+      - name: Запуск тестів (Unittest & Doctest)
+        run: make test

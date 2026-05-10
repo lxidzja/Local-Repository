@@ -4,7 +4,6 @@ from main import calculate_grade_statistics
 
 
 class TestGradeStatistics(unittest.TestCase):
-
     def test_normal_case(self):
         grades = [
             {"name": "Олена", "grade": 95},
